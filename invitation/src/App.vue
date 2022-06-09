@@ -164,7 +164,7 @@ export default {
   }
 }
 
-@for $i from 1 through 8 {
+@for $i from 1 through 4 {
     .slides-items-right:nth-child(#{$i}) {
       animation-delay: $i * 700ms;
     }
