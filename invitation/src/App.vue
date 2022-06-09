@@ -102,23 +102,24 @@
         </svg>
       </a>
       <!-- toggle btn -->
-      <div class="toggleBtn-nav">
-        <span class="toggle-btn top-toggle"></span>
-        <span class="toggle-btn middle-toggle"></span>
-        <span class="toggle-btn bottom-toggle"></span>
+      <div class="toggleBtn-nav" @click="navToggleOnOff" :class="{isToggleBtnActive: isToggleActive}">
+        <span class="toggle-btn top"></span>
+        <span class="toggle-btn middle"></span>
+        <span class="toggle-btn bottom"></span>
       </div>
     </section>
   </nav>
    <!-- slide -->
-  <aside class="slides-nav">
+  <aside class="slides-nav" :class="{slidesNavActive: isToggleActive}">
     <div class="slides-contents-wrap">
       <ul class="slides-content-right slides-content">
-        <li class="slides-items slides-items-right" v-for="(navItemsRight, i) in navItemsRight" :key="i"> 
+        <li class="slides-items" :class="{slidesItems: isToggleActive}" v-for="(navItemsRight, i) in navItemsRight" :key="i"> 
           <a class="slides-items-text" :href="navItemsRightLink[i]"> {{navItemsRight}}</a>
         </li>
       </ul>
       <ul class="slides-content-left slides-content">
-        <li class="slides-items slides-items-left" v-for="(navItemsLeft, i) in navItemsLeft " :key="i">
+        <li class="slides-items" :class="{slidesItems: isToggleActive}" v-for="(navItemsLeft, i) in navItemsLeft " :key="i">
+        <!--  slides-items-left -->
           <a class="slides-items-text" :href="navItemsLeftLink[i]">{{ navItemsLeft }}</a>
         </li>
       </ul>
@@ -130,16 +131,32 @@
 
 export default {
   name: 'App',
+  components: {
+
+  },
   data(){
     return{
+      // Nav For
       navItemsRightLink : ['invite', 'thanks', 'gift', 'design'],
       navItemsRight : ['모바일 초대장', '모바일 감사장', '답례품 제작', '디자인 신청'],
       navItemsLeftLink : ['request', 'qna', 'greeting', 'qr-code'],
-      navItemsLeft : ['신청게시판', '문의하기', '인사말 찾기', 'QR코드 생성']
+      navItemsLeft : ['신청게시판', '문의하기', '인사말 찾기', 'QR코드 생성'],
+
+      // Toggle
+      isToggleActive: false,
+      isToggleAnimationOut: true,
     }
   },
-  components: {
-
+  methods:{
+    navToggleOnOff(){
+      if(!this.isToggleActive){
+        this.isToggleActive = true;
+        this.isToggleAnimationOut = false;
+      }else{
+        this.isToggleActive = false;
+        this.isToggleAnimationOut = true;
+      }
+    }
   }
 }
 </script>
@@ -165,12 +182,8 @@ export default {
 }
 
 @for $i from 1 through 4 {
-    .slides-items-right:nth-child(#{$i}) {
-      animation-delay: $i * 700ms;
-    }
-
-    .slides-items-left:nth-child(#{$i}){
-       animation-delay: $i * 700ms;
+    .slidesItems:nth-child(#{$i}) {
+      animation-delay: $i * 300ms;
     }
 }
 
@@ -270,8 +283,17 @@ a{
     }
     
     .toggleBtn-nav{
+      // padding
+      padding: 5px;
       /* cursor */
       cursor: pointer;
+      // flex
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      // transition
+      transition: all 250ms ease-in-out;
         .toggle-btn{
         /* display */
         display: block;
@@ -282,10 +304,22 @@ a{
         background-color: var(--dark-main-color);
         /* cursor */
         cursor: pointer;
+        // transition
+        transition: all 250ms ease-in-out;
       }
-      .top-toggle,.middle-toggle{
-        /* margin */
-        margin-bottom: 7px;
+    }
+    .isToggleBtnActive{
+      // flex
+      gap: 0px;
+      .top{
+        transform: rotate(46deg)translateY(1.5px);
+      }
+      .middle{
+        // display
+        display: none;
+      }
+      .bottom{
+        transform: rotate(-46deg) translateY(-1.5px);
       }
     }
   }
@@ -299,13 +333,18 @@ a{
   height: 100vh;
   /* background */
   background-color: var(--dark-sub-color);
+  // opacity
+  opacity: 0;
+  // visibilty
+  visibility: hidden;
+  // transition
+  transition: all 300ms ease-in-out;
   /* flex */
   display: flex;
   justify-content: center;
   align-items: center;
   /* z-index */
   z-index: 800;
-
   .slides-contents-wrap{
     /* font */
     font-family: var(--font-kr);
@@ -314,20 +353,30 @@ a{
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
+    // Responsive
+    @include ResponsiveMobile() {
 
+      gap: 0;
+    }
     .slides-content{
-      li{
-          /* padding */
-        padding: 20px;
-          /* transform */
-        transform: translateX(-50px);
+      .slidesItems{
         /* animation */
         animation-name: navItemsAnimation;
         animation-iteration-count: inherit;
         animation-fill-mode: forwards;
         animation-duration: 1s;
+      }
+      li{
+          /* padding */
+        padding: 20px;
+          /* transform */
+        transform: translateX(-50px);
         /* opacity */
-        opacity: 0;       
+        opacity: 0;   
+        @include ResponsiveMobile() {
+          /* padding */
+          padding: 15px;
+        }    
         a{
           /* position */
           position: relative;
@@ -337,6 +386,10 @@ a{
           color: var(--light-main-color);
           /* transition */
           transition: all 250ms ease-in-out;
+          @include ResponsiveMobile() {
+            /* font */
+            font-size: 1rem;
+          }
           &:hover{
             /* font */
             color: var(--sub-color);
@@ -366,6 +419,12 @@ a{
     }
   }
 }
+.slidesNavActive{
+  // opacity
+  opacity: 1;
+  // visibilty
+  visibility: visible;
+}
 
 // Nav animation
 @keyframes navItemsAnimation {
@@ -377,5 +436,14 @@ a{
   }
 }
 
+@keyframes navItemsAnimationOut {
+  to{
+     /* transform */
+    transform: translateX(-50px);
+    /* opacity */
+    opacity: 0; 
+  }
+}
+// Navigation End
 
 </style>
