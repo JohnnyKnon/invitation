@@ -113,13 +113,13 @@
   <aside class="slides-nav">
     <div class="slides-contents-wrap">
       <ul class="slides-content-right slides-content">
-        <li class="slides-items" v-for="(navItemsRight, i) in navItemsRight" :key="i"> 
-          <a class="slides-items-text" v-bind:href="navItemsRightLink[i]"> {{navItemsRight}}</a>
+        <li class="slides-items slides-items-right" v-for="(navItemsRight, i) in navItemsRight" :key="i"> 
+          <a class="slides-items-text" :href="navItemsRightLink[i]"> {{navItemsRight}}</a>
         </li>
       </ul>
       <ul class="slides-content-left slides-content">
-        <li class="slides-items" v-for="(navItemsLeft, i) in navItemsLeft " :key="i">
-          <a class="slides-items-text" v-bind:href="navItemsLeftLink[i]">{{navItemsLeft}}</a>
+        <li class="slides-items slides-items-left" v-for="(navItemsLeft, i) in navItemsLeft " :key="i">
+          <a class="slides-items-text" :href="navItemsLeftLink[i]">{{ navItemsLeft }}</a>
         </li>
       </ul>
     </div>
@@ -132,8 +132,8 @@ export default {
   name: 'App',
   data(){
     return{
-      navItemsRightLink : ['invite', 'bugo', 'thanks', 'gift'],
-      navItemsRight : ['모바일 초대장', '모바일 부고장', '모바일 감사장', '답례품 제작'],
+      navItemsRightLink : ['invite', 'thanks', 'gift', 'design'],
+      navItemsRight : ['모바일 초대장', '모바일 감사장', '답례품 제작', '디자인 신청'],
       navItemsLeftLink : ['request', 'qna', 'greeting', 'qr-code'],
       navItemsLeft : ['신청게시판', '문의하기', '인사말 찾기', 'QR코드 생성']
     }
@@ -144,7 +144,36 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+@mixin ResponsiveMobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin ResponsiveSmallTablet {
+  @media screen and (max-width: 820px) {
+    @content;
+  }
+}
+
+@mixin ResponsiveTablet {
+  @media screen and (max-width: 912px) {
+    @content;
+  }
+}
+
+@for $i from 1 through 8 {
+    .slides-items-right:nth-child(#{$i}) {
+      animation-delay: $i * 700ms;
+    }
+
+    .slides-items-left:nth-child(#{$i}){
+       animation-delay: $i * 700ms;
+    }
+}
+
 /* Variable */
 :root{
   /* font */
@@ -189,8 +218,6 @@ a{
   /* text */
   text-decoration: none;
 }
-
-
 /* Navigation */
 #navbar{
   /* max-width */
@@ -207,63 +234,62 @@ a{
   transform: translateX(-50%);
 
   z-index: 1000;
+
+    /* TOP */
+  .top-nav{
+    /* size */
+    width: 100%;
+    /* margin */
+    margin: 0 auto;
+    /* flex */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* z-index */
+    z-index: 900;
+
+    // Logo
+
+    .logo-a{
+      /* display */
+      display: inline-block;
+    }
+
+    /* Logo SVG style */
+    .logo-a {
+        svg{
+          /* size */
+        width: 70px;
+        /* margin */
+        margin: 0 auto;
+          /* SVG color */
+        fill: var(--dark-main-color); 
+        stroke: var(--dark-main-color);
+        }
+        .st1{fill:none;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
+    }
+    
+    .toggleBtn-nav{
+      /* cursor */
+      cursor: pointer;
+        .toggle-btn{
+        /* display */
+        display: block;
+        /* size */
+        width: 26px;
+        height: 2px;
+        /* background */
+        background-color: var(--dark-main-color);
+        /* cursor */
+        cursor: pointer;
+      }
+      .top-toggle,.middle-toggle{
+        /* margin */
+        margin-bottom: 7px;
+      }
+    }
+  }
 }
-
-/* TOP */
-
-.top-nav{
-  /* size */
-  width: 100%;
-  /* margin */
-  margin: 0 auto;
-  /* flex */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* z-index */
-  z-index: 900;
-}
-
-.logo-a{
-  /* display */
-  display: inline-block;
-}
-
-/* Logo SVG style */
-.logo-a > svg{
-  /* size */
-  width: 70px;
-  /* margin */
-  margin: 0 auto;
-    /* SVG color */
-  fill: var(--dark-main-color); 
-  stroke: var(--dark-main-color);
-}
-.st1{fill:none;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;}
-
-
-.toggleBtn-nav{
-  /* cursor */
-  cursor: pointer;
-}
-
-.toggle-btn{
-  /* display */
-  display: block;
-  /* size */
-  width: 26px;
-  height: 2px;
-  /* background */
-  background-color: var(--dark-main-color);
-  /* cursor */
-  cursor: pointer;
-}
-
-.top-toggle,.middle-toggle{
-  /* margin */
-  margin-bottom: 7px;
-}
-
 /* SLIDE */
 .slides-nav{
   /* position */
@@ -279,36 +305,70 @@ a{
   align-items: center;
   /* z-index */
   z-index: 800;
-}
 
-.slides-contents-wrap{
-  /* font */
-  font-family: var(--font-kr);
-  /* flex */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
-}
+  .slides-contents-wrap{
+    /* font */
+    font-family: var(--font-kr);
+    /* flex */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
 
-.slides-content > li{
-  /* padding */
-  padding: 20px;
-    /* transform */
-  transform: translateX(-50px);
-  /* animation */
-  animation-name: navItemsAnimation;
-  animation-iteration-count: inherit;
-  animation-fill-mode: forwards;
-  animation-duration: 4s;
-  /* opacity */
-  opacity: 0;
-}
-
-@keyframes navItemsAnimation {
-  from{
-
+    .slides-content{
+      li{
+          /* padding */
+        padding: 20px;
+          /* transform */
+        transform: translateX(-50px);
+        /* animation */
+        animation-name: navItemsAnimation;
+        animation-iteration-count: inherit;
+        animation-fill-mode: forwards;
+        animation-duration: 1s;
+        /* opacity */
+        opacity: 0;       
+        a{
+          /* position */
+          position: relative;
+          /* font */
+          font-size: 1.3rem;
+          font-weight: var(--weight-light);
+          color: var(--light-main-color);
+          /* transition */
+          transition: all 250ms ease-in-out;
+          &:hover{
+            /* font */
+            color: var(--sub-color);
+          }
+          &::after{
+            content: "";
+            /* position */
+            position: absolute;
+            top: 15px;
+            left: -26px;
+            /* display */
+            display: block;
+            /* size */
+            width: 20px;
+            height: 1px;
+            /* background */
+            background-color: var(--dark-main-color);
+            /* transition */
+            transition: all 250ms ease-in-out;
+          }
+          &:hover::after{
+            /* size */
+            width: 115%;
+          }
+        }
+      }
+    }
   }
+}
+
+// Nav animation
+@keyframes navItemsAnimation {
   to{
      /* transform */
     transform: translateX(0px);
@@ -317,42 +377,5 @@ a{
   }
 }
 
-.slides-content > li > a{
-  /* position */
-  position: relative;
-  /* font */
-  font-size: 1.3rem;
-  font-weight: var(--weight-light);
-  color: var(--light-main-color);
-  /* transition */
-  transition: all 250ms ease-in-out;
-
-}
-
-.slides-content > li > a::after{
-  content: "";
-  /* position */
-  position: absolute;
-  top: 15px;
-  left: -26px;
-  /* display */
-  display: block;
-  /* size */
-  width: 20px;
-  height: 1px;
-  /* background */
-  background-color: var(--dark-main-color);
-  /* transition */
-  transition: all 250ms ease-in-out;
-}
-
-.slides-content > li > a:hover{
-  /* font */
-  color: var(--sub-color);
-}
-.slides-content > li > a:hover::after{
-  /* size */
-  width: 115%;
-}
 
 </style>
