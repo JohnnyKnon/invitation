@@ -125,14 +125,20 @@
       </ul>
     </div>
   </aside>
+  <!-- Main -->
+  <main id="main">
+    <mainHome />
+  </main>
 </template>
 
 <script>
 
+import mainHome from './components/main/mainHome.vue'
+
 export default {
   name: 'App',
   components: {
-
+    mainHome,
   },
   data(){
     return{
@@ -190,7 +196,6 @@ export default {
 /* Variable */
 :root{
   /* font */
-  --font-cursive: 'Nanum Pen Script', cursive ;
   --font-kr: 'Noto Sans KR', sans-serif;
   --font-eng: 'Roboto', sans-serif;
   /* weight */
@@ -209,7 +214,7 @@ export default {
   --sub-color:#96B1AD;
   --dark-sub-color: #334B49;
   /* highlight */
-  --highlight-color: ##F6B7D7;
+  --highlight-color: #F6B7D7;
   /* grey color */
   --light-grey-color: #EFEFEF;  
 }
@@ -445,5 +450,13 @@ a{
   }
 }
 // Navigation End
+
+// Main
+#main{
+  // flex
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
 
 </style>
