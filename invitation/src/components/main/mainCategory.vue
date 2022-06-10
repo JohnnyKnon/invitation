@@ -14,6 +14,30 @@
        <section class="category-contents">
            <header id="category-header"><h1>Category</h1></header>
            <div class="category-contents-item-wrapper">
+               <section class="category-item" id="invite">
+                   <!-- icon -->
+                   <i class="icon fas fa-envelope"></i>
+                   <!-- title -->
+                    <h2 class="category-item-title">{{ categoryName[0] }}</h2>
+                   <!-- link -->
+                   <a class="category-item-link" :href="categoryLink[0]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
+               </section>
+               <section class="category-item" id="thanks">
+                   <!-- icon -->
+                   <i class="icon fas fa-heart"></i>
+                   <!-- title -->
+                    <h2 class="category-item-title">{{ categoryName[1] }}</h2>
+                   <!-- link -->
+                   <a class="category-item-link" :href="categoryLink[1]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
+               </section>
+               <section class="category-item" id="bugo">
+                   <!-- icon -->
+                   <i class="icon fas fa-ribbon"></i>
+                   <!-- title -->
+                    <h2 class="category-item-title">{{ categoryName[2] }}</h2>
+                   <!-- link -->
+                   <a class="category-item-link" :href="categoryLink[2]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
+               </section>
            </div>
        </section>
     </section>
@@ -31,6 +55,8 @@ export default {
   },
   data(){
     return{
+        categoryName:['모바일 초대장', '모바일 감사장', '모바일 부고장'],
+        categoryLink:['링크1', '링크2', '링크3']
     }
   },
   methods:{
@@ -41,7 +67,7 @@ export default {
 <style lang="scss">
 
 @mixin ResponsiveMobile {
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     @content;
   }
 }
@@ -53,7 +79,7 @@ export default {
 }
 
 @mixin ResponsiveTablet {
-  @media screen and (max-width: 912px) {
+  @media screen and (max-width: 1200px) {
     @content;
   }
 }
@@ -67,9 +93,11 @@ export default {
         // max-size
         max-width: 1200px;
         // size
-        width: 90%;
+        width: 95%;
         // margin
         margin: 0 auto;
+        // padding
+        padding: 30px 0 100px 0;
         // overflow
         overflow-x:hidden;
         // images
@@ -112,6 +140,160 @@ export default {
         
         .atropos-shadow{
             background: transparent;
+        }
+        // Category Contents
+        .category-contents{
+            // size
+            width: 100%;
+            // flex
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // Category header
+            #category-header{
+                // font
+                font-family: var(--font-eng);
+                 // size
+                width: 90%;
+                @include ResponsiveMobile() {
+                    // size
+                    width: 70%;
+                }
+                // h1
+                h1{
+                    // position
+                    position: relative;
+                    // font
+                    font-weight: var(--weight-regular);
+                    font-size: 2.2rem;
+                    color: var(--dark-main-color);
+                    &::after{
+                    // content
+                    content: "";
+                    // position
+                    position: absolute;
+                    top: 50%;
+                    left: -35px;
+                    // szie
+                    width: 30px;
+                    height: 1px;
+                    // background
+                    background-color: var(--dark-sub-color);
+                    }
+                }
+            }
+            // Category items
+            .category-contents-item-wrapper{
+                // size
+                width: 100%;
+                // flex
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                gap: 20px;
+                @include ResponsiveTablet() {
+                    justify-content: center;
+                    gap: 30px;
+                }
+                // Category item
+                .category-item{
+                    // size
+                    width: 350px;
+                    height: 250px;
+                    // flex
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    // border
+                    border: 1px solid var(--light-grey-color);
+                    // box shadow
+                    box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.21);
+                    @include ResponsiveMobile(){
+                        // size
+                        width: 80%;
+                        height: 230px;
+                    }
+                    // icon
+                    .icon{
+                        // font
+                        font-size: 3.5rem;
+                        color: var(--dark-sub-color);
+                    }
+                    // title
+                    .category-item-title{
+                        // font
+                        font-family: var(--font-kr);
+                        font-size: 1.4rem;
+                        font-weight: var(--weight-regular);
+                        color: var(--dark-sub-color);
+                    }
+                    // link
+                    .category-item-link{
+                        // display
+                        display: block;
+                        // font
+                        font-family: var(--font-kr);
+                        font-weight: var(--weight-light);
+                        color: var(--sub-color);
+                        // position
+                        position: relative;
+                        // transition
+                        transition: all 250ms ease-in-out;
+                        &:hover{
+                            // font
+                            color: var(--dark-sub-color);
+
+                            &::after{
+                                // border
+                                border: 1px solid var(--dark-sub-color);
+                                border-right: 1px solid #fff;
+                            }
+
+                            .arrow{
+                                 /* animation */
+                                animation-name: moreArrowAnimation;
+                                animation-iteration-count: infinite;
+                                animation-timing-function: linear;
+                                animation-duration: 1s;
+                            }
+                        }
+                        &::after{
+                            // content
+                            content: "";
+                            // position
+                            position: absolute;
+                            top: -3px;
+                            left: -12px;
+                            // size
+                            width: 30px;
+                            height: 30px;
+                            // border
+                            border: 1px solid var(--sub-color);
+                            border-right: 1px solid #fff;
+                            border-radius: 50%;
+                            // transition
+                            transition: all 250ms ease-in-out;
+                        }
+                    }
+                }
+            } 
+        }
+    }
+
+    @keyframes moreArrowAnimation {
+        0%{
+            transform: translateX(0px);
+            opacity: 100%;
+        }
+        50%{
+            transform: translateX(-5px);
+            opacity: 50%;
+        }
+        100%{
+            transform: translateX(0px);
+            opacity: 100%;
         }
     }
 
