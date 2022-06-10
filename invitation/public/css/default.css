@@ -1,0 +1,44 @@
+/* Variable */
+:root {
+  /* font */
+  --font-kr: 'Noto Sans KR', sans-serif;
+  --font-eng: 'Roboto', sans-serif;
+  /* weight */
+  --weight-thin: 100;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  /* color */
+  /* main color --------- */
+  --light-main-color: #e2fffc;
+  --main-color: #81d8d0;
+  --dark-main-color: #00aa9f;
+  /* sub color --------- */
+  --light-sub-color: #e8f3f1;
+  --sub-color: #96b1ad;
+  --dark-sub-color: #334b49;
+  /* highlight */
+  --highlight-color: #f6b7d7;
+  /* grey color */
+  --light-grey-color: #efefef;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* overflow */
+  overflow-x: hidden;
+}
+
+ul,
+ol {
+  /* list */
+  list-style: none;
+}
+
+a {
+  /* text */
+  text-decoration: none;
+}

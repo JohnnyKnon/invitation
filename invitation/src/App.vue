@@ -128,17 +128,20 @@
   <!-- Main -->
   <main id="main">
     <mainHome />
+    <mainCategory/>
   </main>
 </template>
 
 <script>
 
 import mainHome from './components/main/mainHome.vue'
+import mainCategory from './components/main/mainCategory.vue'
 
 export default {
   name: 'App',
   components: {
     mainHome,
+    mainCategory,
   },
   data(){
     return{
@@ -191,50 +194,6 @@ export default {
     .slidesItems:nth-child(#{$i}) {
       animation-delay: $i * 300ms;
     }
-}
-
-/* Variable */
-:root{
-  /* font */
-  --font-kr: 'Noto Sans KR', sans-serif;
-  --font-eng: 'Roboto', sans-serif;
-  /* weight */
-  --weight-thin: 100;
-  --weight-light: 300;
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-bold: 700;
-  /* color */
-  /* main color --------- */
-  --light-main-color: #E2FFFC;
-  --main-color: #81D8D0;
-  --dark-main-color: #00AA9F;
-  /* sub color --------- */
-  --light-sub-color: #E8F3F1;
-  --sub-color:#96B1AD;
-  --dark-sub-color: #334B49;
-  /* highlight */
-  --highlight-color: #F6B7D7;
-  /* grey color */
-  --light-grey-color: #EFEFEF;  
-}
-
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* overflow */
-  overflow-x: hidden;
-}
-
-ul, ol{
-  /* list */
-  list-style: none;
-}
-
-a{
-  /* text */
-  text-decoration: none;
 }
 /* Navigation */
 #navbar{
