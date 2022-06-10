@@ -2072,6 +2072,11 @@
   "resolved" "https://registry.npmmirror.com/at-least-node/-/at-least-node-1.0.0.tgz"
   "version" "1.0.0"
 
+"atropos@^1.0.2":
+  "integrity" "sha512-0RqyHfMyIhRXgnHuSQz2LVOE81jtAQ7EZTrF75ngiipklIsxajZ2vD042EXdiIEDs6eEAzfE10k+YhIbNl4/eg=="
+  "resolved" "https://registry.npmjs.org/atropos/-/atropos-1.0.2.tgz"
+  "version" "1.0.2"
+
 "autoprefixer@^10.2.4":
   "integrity" "sha512-ypHju4Y2Oav95SipEcCcI5J7CGPuvz8oat7sUtYj3ClK44bldfvtvcxK6IEK++7rqB7YchDGzweZIBG+SD0ZAA=="
   "resolved" "https://registry.npmmirror.com/autoprefixer/-/autoprefixer-10.4.7.tgz"

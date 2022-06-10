@@ -1,21 +1,28 @@
 <template>
     <section id="category">
         <!-- images wrapper -->
-        <figure class="category-images-wrapper">
-            <!-- wedding image one -->
-            <img class="wedding-img-one" src="../../../public/images/wedding/wedding-image02.png" alt="웨딩이미지1"/>
-            <!-- wedding image two --> 
-             <img class="wedding-img-two"  src="../../../public/images/wedding/wedding-img01.png" alt="웨딩이미지2"/>
-        </figure>
+        <atropos class="my-atropos">
+            <figure class="category-images-wrapper">
+                <!-- wedding image one -->
+                <img class="wedding-img-one" src="../../../public/images/wedding/wedding-image02.png" alt="웨딩이미지1"/>
+                <!-- wedding image two --> 
+                <atropos class="my-atropos"> 
+                    <img class="wedding-img-two" data-atropos-offset="-5"  src="../../../public/images/wedding/wedding-img01.png" alt="웨딩이미지2"/>
+                </atropos>
+            </figure>
+       </atropos>
     </section>
 </template>
 
 <script>
 
+  // import Atropos component
+  import Atropos from 'atropos/vue';
+
 export default {
   name: 'mainCategory',
   components: {
-
+      Atropos,
   },
   data(){
     return{
@@ -44,16 +51,21 @@ export default {
             align-items: center;
         }
         .wedding-img-one{
+              // position
+            position: absolute;
             // size
             width: 280px;
         }
         .wedding-img-two{
             // position
-            position: absolute;
+            position: relative;
             top: 100px;
             // size
             width: 650px;
 
+        }
+        .atropos-shadow{
+            background: transparent;
         }
     }
 
