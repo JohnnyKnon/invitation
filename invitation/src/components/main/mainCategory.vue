@@ -11,6 +11,12 @@
                 </atropos>
             </figure>
        </atropos>
+       <section class="category-contents">
+           <header id="category-header"><h1>Category</h1></header>
+           <div class="category-contents-item-wrapper">
+               
+           </div>
+       </section>
     </section>
 </template>
 
