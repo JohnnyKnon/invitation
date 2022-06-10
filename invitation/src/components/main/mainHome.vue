@@ -239,8 +239,8 @@ export default {
         // SVG divider
         .custom-shape-divider-bottom-1654822575 {
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: -1px;
+            left: 0px;
             width: 100%;
             overflow: hidden;
             line-height: 0;

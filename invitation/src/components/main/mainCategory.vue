@@ -18,12 +18,10 @@ export default {
 
   },
   data(){
-      return{
-
-      }
+    return{
+    }
   },
   methods:{
-
   }
 }
 </script>
@@ -50,8 +48,12 @@ export default {
             width: 280px;
         }
         .wedding-img-two{
+            // position
+            position: absolute;
+            top: 100px;
             // size
-            width: 300px;
+            width: 650px;
+
         }
     }
 
