@@ -1,8 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import 'atropos/css'
 
-import VueRellax from 'vue-rellax'
-createApp(App).use(VueRellax);
 
 createApp(App).mount('#app')
 
