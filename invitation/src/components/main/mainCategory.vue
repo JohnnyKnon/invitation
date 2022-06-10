@@ -39,13 +39,39 @@ export default {
 </script>
 
 <style lang="scss">
+
+@mixin ResponsiveMobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin ResponsiveSmallTablet {
+  @media screen and (max-width: 820px) {
+    @content;
+  }
+}
+
+@mixin ResponsiveTablet {
+  @media screen and (max-width: 912px) {
+    @content;
+  }
+}
+
+@for $i from 1 through 4 {
+    .slidesItems:nth-child(#{$i}) {
+      animation-delay: $i * 300ms;
+    }
+}
     #category{
         // max-size
-        max-width: 1300px;
+        max-width: 1200px;
         // size
-        width: 100%;
+        width: 90%;
         // margin
         margin: 0 auto;
+        // overflow
+        overflow-x:hidden;
         // images
         .category-images-wrapper{
             // position
@@ -54,21 +80,36 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        .wedding-img-one{
+            .my-atropos{
+                height: 550px;
+                @include ResponsiveMobile() {
+                    height: 420px;
+                }
+            }
+            // Image
+            .wedding-img-one{
               // position
             position: absolute;
             // size
             width: 280px;
+            @include ResponsiveMobile() {
+                // size
+                width: 200px;
+            }
+            }
+            .wedding-img-two{
+                // position
+                position: relative;
+                top: 100px;
+                // size
+                width: 650px;
+            @include ResponsiveMobile() {
+                // size
+                width: 450px;
+            }
+            }
         }
-        .wedding-img-two{
-            // position
-            position: relative;
-            top: 100px;
-            // size
-            width: 650px;
-
-        }
+        
         .atropos-shadow{
             background: transparent;
         }
