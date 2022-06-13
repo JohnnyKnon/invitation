@@ -40,7 +40,7 @@ export default {
 
   data(){
     return{
-        contactItemsTitle : ['신청 게시판', '인사말 찾기', '문의하기'],
+        contactItemsTitle : ['신청 확인', '인사말 찾기', '문의하기'],
         contactBtnLink : ['신청', '인사말', '문의하기'],
         requestActive : false,
         requestItemVind : '',

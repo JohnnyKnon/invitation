@@ -14,3 +14,6 @@ createApp(App).component(mainCategory.name, mainCategory)
 
 import mainContact from './components/main/mainContact.vue'
 createApp(App).component(mainContact.name, mainContact)
+
+import footerDefault from './components/footer.vue'
+createApp(App).component(footerDefault.name, footerDefault)

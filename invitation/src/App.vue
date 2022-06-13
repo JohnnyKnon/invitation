@@ -131,6 +131,7 @@
     <mainCategory/>
     <mainContact/>
   </main>
+  <footerDefault/>
 </template>
 
 <script>
@@ -138,13 +139,15 @@
 import mainHome from './components/main/mainHome.vue'
 import mainCategory from './components/main/mainCategory.vue'
 import mainContact from './components/main/mainContact.vue'
+import footerDefault from './components/footer.vue'
 
 export default {
   name: 'App',
   components: {
     mainHome,
     mainCategory,
-    mainContact
+    mainContact,
+    footerDefault
   },
   data(){
     return{
