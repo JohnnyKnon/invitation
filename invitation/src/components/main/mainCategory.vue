@@ -4,17 +4,24 @@
         <atropos class="my-atropos">
             <figure class="category-images-wrapper">
                 <!-- wedding image one -->
-                <img class="wedding-img-one" src="../../../public/images/wedding/wedding-image02.png" alt="웨딩이미지1"/>
+                <img class="wedding-img-one" src="../../../public/images/wedding/wedding-image02.png" alt="웨딩이미지1" 
+                    data-aos="fade-up" 
+                    data-aos-delay="50"
+                    data-aos-duration="2000" />
                 <!-- wedding image two --> 
-                <atropos class="my-atropos"> 
-                    <img class="wedding-img-two" data-atropos-offset="-5"  src="../../../public/images/wedding/wedding-img01.png" alt="웨딩이미지2"/>
+                <atropos class="my-atropos" data-atropos-offset="-5"> 
+                    <img class="wedding-img-two" src="../../../public/images/wedding/wedding-img01.png" alt="웨딩이미지2"
+                     data-aos="fade-down" 
+                    data-aos-delay="500"
+                    data-aos-duration="2000" 
+                    />
                 </atropos>
             </figure>
        </atropos>
        <section class="category-contents">
            <header id="category-header"><h1>Category</h1></header>
            <div class="category-contents-item-wrapper">
-               <section class="category-item" id="invite">
+               <section class="category-item" id="invite" data-aos="fade-right" data-aos-delay="50" data-aos-duration="2000" >
                    <!-- icon -->
                    <i class="icon fas fa-envelope"></i>
                    <!-- title -->
@@ -22,7 +29,7 @@
                    <!-- link -->
                    <a class="category-item-link" :href="categoryLink[0]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
                </section>
-               <section class="category-item" id="thanks">
+               <section class="category-item" id="thanks" data-aos="fade-right" data-aos-delay="450" data-aos-duration="2000">
                    <!-- icon -->
                    <i class="icon fas fa-heart"></i>
                    <!-- title -->
@@ -30,7 +37,7 @@
                    <!-- link -->
                    <a class="category-item-link" :href="categoryLink[1]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
                </section>
-               <section class="category-item" id="bugo">
+               <section class="category-item" id="bugo" data-aos="fade-right" data-aos-delay="850" data-aos-duration="2000">
                    <!-- icon -->
                    <i class="icon fas fa-ribbon"></i>
                    <!-- title -->
