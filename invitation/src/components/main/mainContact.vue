@@ -6,12 +6,25 @@
                 <header id="contact-header"><h1>Contact</h1></header>
                 <div class="contact-items">
                     <section class="contact-icons">
-
+                        <!-- request -->
+                        <section class="icon-style" data-aos="flip-left" data-aos-delay="50" data-aos-duration="2000" >
+                            <i class="fas fa-clipboard-list"></i>
+                        </section>
+                        <!-- comment -->
+                        <section class="icon-style" data-aos="flip-left" data-aos-delay="350" data-aos-duration="2000" >
+                            <i class="fas fa-comment"></i>
+                        </section>
+                        <!-- qna -->
+                        <section class="icon-style" data-aos="flip-left" data-aos-delay="650" data-aos-duration="2000" >
+                            <i class="fas fa-headset"></i>
+                        </section>
                     </section>
-                    <section class="contact-item-style" v-for="(contactItemsTitle, i) in contactItemsTitle " :key="i">
-                        <h2 class="contact-item-title"> {{ contactItemsTitle }}</h2>
-                        <a :href="contactBtnLink[i]">바로가기</a>
-                        <button @click="requestEventHandler(contactBtnLink[i])" :id="'request'+ i">신청하기</button>
+                    <section class="contact-item-style">
+                       <div class="contact-item-contents-wrapper" v-for="(contactItemsTitle, i) in contactItemsTitle " :key="i" data-aos="zoom-in" data-aos-delay="50" data-aos-duration="2000">
+                            <h2 class="contact-item-title"> {{ contactItemsTitle }}</h2>
+                            <a :href="contactBtnLink[i]">바로가기</a>
+                            <button @click="requestEventHandler(contactBtnLink[i])" :id="'request'+ i">신청하기</button>
+                       </div>
                     </section>
                 </div>
             </section>
@@ -79,7 +92,7 @@ export default {
         // margin
         margin: 0 auto;
         // padding
-        padding: 60px 0;
+        padding: 70px 0;
         .contact-content{
             // size
             width: 100%;
@@ -117,6 +130,140 @@ export default {
                         height: 1px;
                         // background
                         background-color: var(--dark-sub-color);
+                    }
+                }
+            }
+            // items
+            .contact-items{
+                 // size
+                width: 100%;
+                // padding
+                padding-top: 20px;
+                padding-bottom: 50px;
+                // flex
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                // icons
+                .contact-icons{
+                     // size
+                    width: 100%;
+                    // flex
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    // icon style
+                    .icon-style{
+                        // size
+                        width: 150px;
+                        // flex
+                        display: flex;
+                        justify-content: center;
+                        @include ResponsiveMobile() {
+                            // size
+                            width: 100px;
+                        }
+                        i{
+                            // font
+                            font-size: 5rem;
+                            color: var(--sub-color);
+                            @include ResponsiveMobile() {
+                                // font
+                                font-size: 3rem;
+                            }
+                        }
+                    }
+                }
+                // contact item style
+                .contact-item-style{
+                    // size
+                    width: 100%;
+                     // flex
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    @include ResponsiveMobile() {
+                        // flex
+                        flex-direction: column;   
+                    }
+                    // item contents wrapper
+                    .contact-item-contents-wrapper{
+                        // font
+                        font-family: var(--font-kr);
+                        // size
+                        width: 150px;
+                        // padding
+                        padding-top: 10px;
+                        // flex
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        @include ResponsiveMobile() {
+                             // size
+                            width: 90%;
+                            // padding
+                            padding: 30px 0;
+                            // margin
+                            margin-top: 40px;
+                            // border
+                            border-top: 1px solid var(--dark-sub-color);
+                            // flex
+                            align-items: flex-start;
+                        }
+                        // title
+                        .contact-item-title{
+                            // font
+                            font-size: 1.4rem;
+                            font-weight: var(--weight-regular);
+                            color: var(--dark-sub-color);
+                        }
+                        // link button
+                        a{
+                            // display
+                            display: block;
+                            // font
+                            font-size: 1rem;
+                            color: var(--main-color);
+                            // text
+                            text-align: center;
+                            // size
+                            width: 100%;
+                            // padding
+                            padding: 4px 0;
+                            // margin
+                            margin-bottom: 10px;
+                            // background
+                            background-color: var(--dark-sub-color);
+                            // border
+                            border: 2px solid var(--dark-sub-color);
+                            border-radius: 20px;
+                            // transition
+                            transition: all 250ms ease-in-out;
+                            &:hover{
+                                // font
+                                color: var(--dark-sub-color);
+                                // background
+                                background-color: var(--light-sub-color);
+                            }
+                        }
+                        button{
+                            // font
+                            font-size: 1rem;
+                            color: var(--dark-sub-color);
+                            // size
+                            width: 100%;
+                             // padding
+                            padding: 7px 0;
+                            // background
+                            background-color: var(--main-color);
+                            // border
+                            border: 0;
+                            border-radius: 20px;
+                            // cursor
+                            cursor: pointer;
+                        }
                     }
                 }
             }
