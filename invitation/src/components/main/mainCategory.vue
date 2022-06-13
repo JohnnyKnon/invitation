@@ -254,7 +254,6 @@ export default {
                         &:hover{
                             // font
                             color: var(--dark-sub-color);
-
                             &::after{
                                 // border
                                 border: 1px solid var(--dark-sub-color);
@@ -291,8 +290,6 @@ export default {
             } 
             // QR code link
             .qr-wrapper{
-                // size
-                width: 95%;
                 // padding
                 padding-top: 20px;
                 .qr{
@@ -303,8 +300,6 @@ export default {
                     border-bottom: 1px solid var(--sub-color);
                     // padding
                     padding-bottom: 2px;
-                    // float
-                    float: right;
                 }
             }
         }

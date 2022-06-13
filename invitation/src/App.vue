@@ -129,6 +129,7 @@
   <main id="main">
     <mainHome />
     <mainCategory/>
+    <mainContact/>
   </main>
 </template>
 
@@ -136,12 +137,14 @@
 
 import mainHome from './components/main/mainHome.vue'
 import mainCategory from './components/main/mainCategory.vue'
+import mainContact from './components/main/mainContact.vue'
 
 export default {
   name: 'App',
   components: {
     mainHome,
     mainCategory,
+    mainContact
   },
   data(){
     return{

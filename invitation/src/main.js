@@ -11,3 +11,6 @@ createApp(App).component(mainHome.name, mainHome)
 
 import mainCategory from './components/main/mainCategory.vue'
 createApp(App).component(mainCategory.name, mainCategory)
+
+import mainContact from './components/main/mainContact.vue'
+createApp(App).component(mainContact.name, mainContact)
