@@ -17,8 +17,8 @@
                     />
                 </atropos>
             </figure>
-       </atropos>
-       <section class="category-contents">
+        </atropos>
+        <section class="category-contents">
            <header id="category-header"><h1>Category</h1></header>
            <div class="category-contents-item-wrapper">
                <section class="category-item" id="invite" data-aos="fade-right" data-aos-delay="50" data-aos-duration="2000" >
@@ -46,7 +46,10 @@
                    <a class="category-item-link" :href="categoryLink[2]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
                </section>
            </div>
-       </section>
+           <div class="qr-wrapper">
+               <a href="#" class="qr">QR코드 생성</a>
+           </div>
+        </section>
     </section>
 </template>
 
@@ -286,6 +289,24 @@ export default {
                     }
                 }
             } 
+            // QR code link
+            .qr-wrapper{
+                // size
+                width: 95%;
+                // padding
+                padding-top: 20px;
+                .qr{
+                    // font
+                    font-family: var(--font-kr);
+                    color: var(--sub-color);
+                    // border
+                    border-bottom: 1px solid var(--sub-color);
+                    // padding
+                    padding-bottom: 2px;
+                    // float
+                    float: right;
+                }
+            }
         }
     }
 
