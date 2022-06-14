@@ -34,8 +34,8 @@
                     <section class="contact-item-style">
                        <div class="contact-item-contents-wrapper" v-for="(contactItemsTitle, i) in contactItemsTitle " :key="i" data-aos="zoom-in" data-aos-delay="50" data-aos-duration="2000">
                             <h2 class="contact-item-title"> {{ contactItemsTitle }}</h2>
-                            <a :href="contactBtnLink[i]">바로가기</a>
-                            <button @click="requestEventHandler(contactBtnLink[i])" :id="'request'+ i">신청하기</button>
+                            <a :href="contactBtnLink[i]">{{ contactBtnName[i] }}</a>
+                            <button @click="requestEventHandler(contactBtnLink[i])" :id="'request'+ i">{{ contactRequestBtnName[i] }}</button>
                        </div>
                     </section>
                 </div>
@@ -54,6 +54,8 @@ export default {
     return{
         contactItemsTitle : ['신청 확인', '인사말 찾기', '문의하기'],
         contactBtnLink : ['신청', '인사말', '문의하기'],
+        contactBtnName : ['확인하기', '추천목록 가기', '문의내역 가기' ],
+        contactRequestBtnName : ['신청관련 문의', '추천 받기', '문의작성' ],
         requestActive : false,
         requestItemVind : '',
     }
@@ -107,7 +109,7 @@ export default {
     height: 100%;
     // background
     background-color: var(--light-sub-color);
-    
+    // request wrapper
     // contact wrapper
     .contact-wrapper{
          // max-size
