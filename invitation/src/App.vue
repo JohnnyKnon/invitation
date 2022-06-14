@@ -114,13 +114,13 @@
     <div class="slides-contents-wrap">
       <ul class="slides-content-right slides-content">
         <li class="slides-items" :class="{slidesItems: isToggleActive}" v-for="(navItemsRight, i) in navItemsRight" :key="i"> 
-          <a class="slides-items-text" :href="navItemsRightLink[i]"> {{navItemsRight}}</a>
+          <a class="slides-items-text"><router-link :to="navItemsRightLink[i]" > {{navItemsRight}}</router-link></a>
         </li>
       </ul>
       <ul class="slides-content-left slides-content">
         <li class="slides-items" :class="{slidesItems: isToggleActive}" v-for="(navItemsLeft, i) in navItemsLeft " :key="i">
         <!--  slides-items-left -->
-          <a class="slides-items-text" :href="navItemsLeftLink[i]">{{ navItemsLeft }}</a>
+          <a class="slides-items-text"><router-link :to="navItemsLeftLink[i]">{{ navItemsLeft }}</router-link></a>
         </li>
       </ul>
     </div>
@@ -132,6 +132,7 @@
     <mainContact/>
   </main>
   <footerDefault/>
+  <!-- <router-view /> -->
 </template>
 
 <script>
@@ -152,7 +153,7 @@ export default {
   data(){
     return{
       // Nav For
-      navItemsRightLink : ['invite', 'thanks', 'gift', 'design'],
+      navItemsRightLink : ['/Invite', 'thanks', 'gift', 'design'],
       navItemsRight : ['모바일 초대장', '모바일 감사장', '답례품 제작', '디자인 신청'],
       navItemsLeftLink : ['request', 'qna', 'greeting', 'qr-code'],
       navItemsLeft : ['신청게시판', '문의하기', '인사말 찾기', 'QR코드 생성'],
@@ -356,6 +357,8 @@ export default {
           color: var(--light-main-color);
           /* transition */
           transition: all 250ms ease-in-out;
+          // cursor
+          cursor: pointer;
           @include ResponsiveMobile() {
             /* font */
             font-size: 1rem;
