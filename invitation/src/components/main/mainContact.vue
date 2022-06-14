@@ -1,7 +1,19 @@
 <template>
     <section id="contact">
-        <!-- BG color -->
-        <div class="contact-wrapper">
+        <!-- request pop up -->
+        <section class="request-wrapper" :class="{requestBG : requestActive}">
+            <!-- form -->
+             <form class="request-form" :class="{requestForm : requestActive}">
+                <!-- if request to comment -->
+                <section id="request-request" v-if="requestItemVind === 'request'">
+                </section>
+                <section id="request-comment" v-else-if="requestItemVind === 'comment'">
+                </section>
+                <section id="request-qna" v-else-if="requestItemVind === 'qna'">
+                </section>
+            </form>
+        </section>
+        <section class="contact-wrapper">
             <section class="contact-content">
                 <header id="contact-header"><h1>Contact</h1></header>
                 <div class="contact-items">
@@ -28,7 +40,7 @@
                     </section>
                 </div>
             </section>
-        </div>
+        </section>
     </section>
 </template>
 
@@ -48,7 +60,19 @@ export default {
   },
    methods:{
        requestEventHandler(i){
-           console.log(i);
+           if(i === "신청"){
+               this.requestItemVind = 'request';
+               this.requestActive = true;
+           } else if(i === "인사말"){
+               this.requestItemVind = 'comment';
+               this.requestActive = true;
+           } else if (i === "문의하기"){
+               this.requestItemVind = 'qna';
+               this.requestActive = true;
+           } else{
+               this.requestItemVind = '';
+               this.requestActive = false;
+           }
        }
    },
 
@@ -83,6 +107,7 @@ export default {
     height: 100%;
     // background
     background-color: var(--light-sub-color);
+    
     // contact wrapper
     .contact-wrapper{
          // max-size
