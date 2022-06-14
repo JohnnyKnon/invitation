@@ -114,41 +114,31 @@
     <div class="slides-contents-wrap">
       <ul class="slides-content-right slides-content">
         <li class="slides-items" :class="{slidesItems: isToggleActive}" v-for="(navItemsRight, i) in navItemsRight" :key="i"> 
-          <a class="slides-items-text"><router-link :to="navItemsRightLink[i]" > {{navItemsRight}}</router-link></a>
+          <a class="slides-items-text" @click="isToggleActive = false"><router-link :to="navItemsRightLink[i]" > {{navItemsRight}}</router-link></a>
         </li>
       </ul>
       <ul class="slides-content-left slides-content">
         <li class="slides-items" :class="{slidesItems: isToggleActive}" v-for="(navItemsLeft, i) in navItemsLeft " :key="i">
         <!--  slides-items-left -->
-          <a class="slides-items-text"><router-link :to="navItemsLeftLink[i]">{{ navItemsLeft }}</router-link></a>
+          <a class="slides-items-text" @click="isToggleActive = false"><router-link :to="navItemsLeftLink[i]">{{ navItemsLeft }}</router-link></a>
         </li>
       </ul>
     </div>
   </aside>
-  <!-- Main -->
-  <main id="main">
-    <mainHome />
-    <mainCategory/>
-    <mainContact/>
-  </main>
+  <!-- Router View -->
+  <router-view />
   <footerDefault/>
-  <!-- <router-view /> -->
+
 </template>
 
 <script>
 
-import mainHome from './components/main/mainHome.vue'
-import mainCategory from './components/main/mainCategory.vue'
-import mainContact from './components/main/mainContact.vue'
 import footerDefault from './components/footer.vue'
 
 export default {
   name: 'App',
   components: {
-    mainHome,
-    mainCategory,
-    mainContact,
-    footerDefault
+    footerDefault,
   },
   data(){
     return{
@@ -419,12 +409,5 @@ export default {
 }
 // Navigation End
 
-// Main
-#main{
-  // flex
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
 
 </style>
