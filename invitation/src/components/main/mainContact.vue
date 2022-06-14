@@ -4,12 +4,14 @@
         <section class="request-wrapper" :class="{requestBG : requestActive}">
             <!-- form -->
              <form class="request-form" :class="{requestForm : requestActive}">
-                <!-- if request to comment -->
-                <section id="request-request" v-if="requestItemVind === 'request'">
+                <!-- times -->
+                <i class="fas fa-times"></i>
+                <!-- if request to comment v-if="requestItemVind === 'delete'"   v-else-if="requestItemVind === 'comment'" v-else-if="requestItemVind === 'qna'"-->
+                <section id="request-delete" >
+
                 </section>
-                <section id="request-comment" v-else-if="requestItemVind === 'comment'">
-                </section>
-                <section id="request-qna" v-else-if="requestItemVind === 'qna'">
+                <section id="notOpen"></section>
+                <section id="request-qna" >
                 </section>
             </form>
         </section>
@@ -55,7 +57,7 @@ export default {
         contactItemsTitle : ['신청 확인', '인사말 찾기', '문의하기'],
         contactBtnLink : ['신청', '인사말', '문의하기'],
         contactBtnName : ['확인하기', '추천목록 가기', '문의내역 가기' ],
-        contactRequestBtnName : ['신청관련 문의', '추천 받기', '문의작성' ],
+        contactRequestBtnName : ['신청 취소하기', '추천 받기', '문의작성' ],
         requestActive : false,
         requestItemVind : '',
     }
@@ -63,10 +65,10 @@ export default {
    methods:{
        requestEventHandler(i){
            if(i === "신청"){
-               this.requestItemVind = 'request';
+               this.requestItemVind = 'delete';
                this.requestActive = true;
            } else if(i === "인사말"){
-               this.requestItemVind = 'comment';
+               this.requestItemVind = 'notOpen';
                this.requestActive = true;
            } else if (i === "문의하기"){
                this.requestItemVind = 'qna';
@@ -110,6 +112,51 @@ export default {
     // background
     background-color: var(--light-sub-color);
     // request wrapper
+    // .request-wrapper{
+    //     // position
+    //     position: fixed;
+    //     top: 0;
+    //     left: 0;
+    //     // size
+    //     width: 100%;
+    //     height: 100%;
+    //     // background
+    //     background-color: rgba(0, 0, 0, 0.454);
+    //     // opacity
+    //     opacity: 1;
+    //     // visible
+    //     visibility: visible;
+    //     // z-index
+    //     z-index: 1000;
+    //     // flex
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     // form
+    //     .request-form{
+    //         // position
+    //         position: relative;
+    //         // size
+    //         width: 800px;
+    //         height: 800px;
+    //         // background
+    //         background-color: #fff;
+    //         // border
+    //         border-radius: 30px;
+    //         // times
+    //         i{
+    //             // font
+    //             font-size: 2rem;
+    //             // position
+    //             position: absolute;
+    //             top: 30px;
+    //             right: 35px;
+    //             // cursor
+    //             cursor: pointer;
+    //         }
+    //     }
+
+    // }
     // contact wrapper
     .contact-wrapper{
          // max-size
