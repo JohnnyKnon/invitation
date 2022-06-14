@@ -8,9 +8,60 @@
                 <i class="fas fa-times"></i>
                 <!-- if request to comment v-if="requestItemVind === 'delete'"   v-else-if="requestItemVind === 'comment'" v-else-if="requestItemVind === 'qna'"-->
                 <section id="request-delete" >
+                    <!-- items title -->
+                    <header class="request-items-title"><h1>신청 취소하기</h1></header>
+                    <!-- items contents -->
+                    <section class="delete-agree">
+                        <label for="delete-agree-text">개인정보 수집 및 이용 동의</label>
+                        <textarea name="deleteAgree" id="delete-agree-text" readonly>
+1. 수집하는 개인정보 항목
+본 사이트는 온라인 상담을 위해 아래와 같은 개인정보를 수집하고 있습니다.
+수집항목: 이름, 전화번호, 이메일
+개인정보 수집방법: 신청취소하기
+
+2. 개인정보의 수집 및 이용목적
+회사는 수집한 개인정보를 다음의 목적을 위해 사용합니다.
+신청취소하기
+
+3. 개인정보의 보유 및 이용기간
+원칙적으로, 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.
+                        </textarea>
+                        <div class="agree-check">
+                            <input type="checkbox" name="deleteCheck" id="delete-check" class="checkbox" required>
+                            <label for="delete-check">동의하시겠습니까?</label>
+                        </div>
+                    </section>
+                    <section class="request-total-style delete-select-type">
+                        <label for="delete-type">신청종류</label>
+                        <select name="deleteType" id="delete-type" @change="deleteInfoHandler($event)">
+                            <option value="모바일 초대장">모바일 초대장</option>
+                            <option value="모바일 청첩장">모바일 청첩장</option>
+                            <option value="모바일 부고장">모바일 부고장</option>
+                            <option value="답례품">답례품</option>
+                            <option value="디자인 신청">디자인 신청</option>
+                        </select>
+                        <span class="highlight">{{ deleteInfo }}</span>
+                    </section>
+                    <section class="request-total-style request-delete-name">
+                        <label for="delete-name">신청자명</label>
+                        <input type="text" name="deleteName" id="delete-name" placeholder="예) 홍길동" maxlength="15" required>
+                    </section>
+                    <section class="request-total-style request-delete-tel">
+                        <label for="delete-tel">신청자 전화번호</label>
+                        <input type="tel" name="deleteTel" id="delete-tel" placeholder="예) 01012341234" required>
+                    </section>
+                    <section class="request-total-style request-delete-email">
+                        <label for="delete-email">신청자 이메일</label>
+                        <input type="email" name="deleteEmail" id="delete-email" placeholder="예) example@mossic.com" required>
+                        <span class="highlight">* 취소여부는 해당 이메일로 전송됩니다. *</span>
+                    </section>
+                    <section class="request-delete-submit">
+                        <input type="submit" value="신청취소하기">
+                    </section>
+                </section>
+                <section id="notOpen">
 
                 </section>
-                <section id="notOpen"></section>
                 <section id="request-qna" >
                 </section>
             </form>
@@ -54,15 +105,20 @@ export default {
 
   data(){
     return{
+        // contact BTN
         contactItemsTitle : ['신청 확인', '인사말 찾기', '문의하기'],
         contactBtnLink : ['신청', '인사말', '문의하기'],
         contactBtnName : ['확인하기', '추천목록 가기', '문의내역 가기' ],
         contactRequestBtnName : ['신청 취소하기', '추천 받기', '문의작성' ],
+        // Request
         requestActive : false,
         requestItemVind : '',
+        // deleteSelectInfo
+        deleteInfo: '',
     }
   },
    methods:{
+    // Request Change contents handler
        requestEventHandler(i){
            if(i === "신청"){
                this.requestItemVind = 'delete';
@@ -77,7 +133,17 @@ export default {
                this.requestItemVind = '';
                this.requestActive = false;
            }
-       }
+       },
+    // select reaction
+    deleteInfoHandler(event){
+        if(event.target.value === '답례품'){
+            this.deleteInfo = '* 답례품은 제작의뢰일 로부터 3일이내에만 취소 가능합니다. *';
+        } else if (event.target.value === '디자인 신청'){
+            this.deleteInfo = '* 디자인 신청은 제작의뢰일 로부터 3일이내에만 취소 가능합니다. *';
+        }else{
+            this.deleteInfo = '';
+        }
+    }
    },
 
 }
@@ -112,51 +178,207 @@ export default {
     // background
     background-color: var(--light-sub-color);
     // request wrapper
-    // .request-wrapper{
-    //     // position
-    //     position: fixed;
-    //     top: 0;
-    //     left: 0;
-    //     // size
-    //     width: 100%;
-    //     height: 100%;
-    //     // background
-    //     background-color: rgba(0, 0, 0, 0.454);
-    //     // opacity
-    //     opacity: 1;
-    //     // visible
-    //     visibility: visible;
-    //     // z-index
-    //     z-index: 1000;
-    //     // flex
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     // form
-    //     .request-form{
-    //         // position
-    //         position: relative;
-    //         // size
-    //         width: 800px;
-    //         height: 800px;
-    //         // background
-    //         background-color: #fff;
-    //         // border
-    //         border-radius: 30px;
-    //         // times
-    //         i{
-    //             // font
-    //             font-size: 2rem;
-    //             // position
-    //             position: absolute;
-    //             top: 30px;
-    //             right: 35px;
-    //             // cursor
-    //             cursor: pointer;
-    //         }
-    //     }
+    .request-wrapper{
+        // position
+        position: fixed;
+        top: 0;
+        left: 0;
+        // size
+        width: 100%;
+        height: 100%;
+        // background
+        background-color: rgba(0, 0, 0, 0.454);
+        // opacity
+        opacity: 1;
+        // visible
+        visibility: visible;
+        // z-index
+        z-index: 1000;
+        // flex
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // form
+        .request-form{
+            // position
+            position: relative;
+            // size
+            width: 700px;
+            height: 800px;
+            // background
+            background-color: #fff;
+            // border
+            border-radius: 30px;
+            @include ResponsiveMobile(){
+                // size
+                width: 90%;
+                height: 650px;
+            }
+            // times
+            i{
+                // font
+                font-size: 2rem;
+                // position
+                position: absolute;
+                top: 30px;
+                right: 35px;
+                // cursor
+                cursor: pointer;
+            }
+            // total style input & select
+            .request-total-style{
+                    // size
+                    width: 100%;
+                    // flex
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    // highlight
+                    .highlight{
+                        // font
+                        font-size: 0.8rem;
+                        color: var(--dark-main-color);
+                        @include ResponsiveMobile(){
+                            // font
+                            font-size: 0.7rem;
+                        }
+                    }
+                    // label
+                    label{
+                        // font
+                        font-size: 1rem;
+                        color: var(--dark-sub-color);
+                    }
+                    // input
+                    input{
+                        // size
+                        width: 95%;
+                        height: 30px;
+                        // border
+                        border: 1px solid var(--dark-sub-color);
+                        border-radius: 5px;
+                        @include ResponsiveMobile(){
+                            // size
+                            height: 20px;
+                        }
+                    }
+                    select{
+                        // size
+                        width: 97%;
+                        height: 30px;
+                    }
+            }
+            // Delete Request
+            #request-delete{
+                // font
+                font-family: var(--font-kr);
+                // position
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                // size
+                width: 90%;
+                height: 90%;
+                // transfrom
+                transform: translate(-50%, -20%);
+                // flex
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                @include ResponsiveMobile(){
+                    // flex
+                    gap: 10px;
+                }
+                // title
+                .request-items-title{
+                    // font
+                    font-family: var(--font-kr);
+                    font-size: 1.8rem;
+                    color: var(--dark-sub-color);
+                    @include ResponsiveMobile(){
+                        // font
+                        font-size: 1.5rem;
+                    }
+                }
+                // delete agree
+                .delete-agree{
+                    // size
+                    width: 100%;
+                    // flex
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                    @include ResponsiveMobile(){
+                        // margin
+                        margin-top: -20px;
+                    }
+                    // label
+                    label{
+                        @include ResponsiveMobile(){
+                            // font
+                            font-size: 0.8rem;
+                        }
+                    }
+                    // textarea
+                    textarea{
+                        // font
+                        font-family: var(--font-kr);
+                        font-size: 0.8rem;
+                        color: rgb(92, 92, 92);
+                        // text
+                        text-align: justify;
+                        // size
+                        width: 100%;
+                        height: 100px;
+                        // resize
+                        resize: none;
+                        @include ResponsiveMobile(){
+                            height: 60px;
+                        }
+                    }
+                    .agree-check{
+                        // flex
+                        display: flex;
+                        align-items:center;
+                        label{
+                            // font
+                            font-size: 0.8rem;
+                            // cursor
+                            cursor: pointer;
+                        }
+                    }
+                }
+                // request delete style
+                
+                .request-delete-submit{
+                    // margin
+                    margin-top: 10px;
+                    // size
+                    width: 100%;
+                    // submit
+                    input{
+                        // font
+                        font-family: var(--font-kr);
+                        font-size: 0.9rem;
+                        color: #fff;
+                        // size
+                        width: 100%;
+                        height: 35px;
+                        // background
+                        background-color: var(--dark-sub-color);
+                        // border
+                        border: 0;
+                        border-radius: 20px;
+                        // cursor
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
 
-    // }
+    }
     // contact wrapper
     .contact-wrapper{
          // max-size

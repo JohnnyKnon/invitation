@@ -42,3 +42,8 @@ a {
   /* text */
   text-decoration: none;
 }
+
+input:not(.agree, .checkbox, .button) {
+  appearance: none;
+  border-radius: 0;
+}
