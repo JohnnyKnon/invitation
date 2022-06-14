@@ -260,7 +260,7 @@ export default {
             position: relative;
             // size
             width: 700px;
-            height: 800px;
+            height: 840px;
             // background
             background-color: #fff;
             // border
