@@ -35,7 +35,7 @@
                         <label for="delete-type">신청종류</label>
                         <select name="deleteType" id="delete-type" @change="deleteInfoHandler($event)">
                             <option value="모바일 초대장">모바일 초대장</option>
-                            <option value="모바일 청첩장">모바일 청첩장</option>
+                            <option value="모바일 청첩장">모바일 감사장</option>
                             <option value="모바일 부고장">모바일 부고장</option>
                             <option value="답례품">답례품</option>
                             <option value="디자인 신청">디자인 신청</option>
