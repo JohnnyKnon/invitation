@@ -27,7 +27,7 @@
                    <!-- title -->
                     <h2 class="category-item-title">{{ categoryName[0] }}</h2>
                    <!-- link -->
-                   <a class="category-item-link" :href="categoryLink[0]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
+                   <router-link to="/Invite" class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
                </section>
                <section class="category-item" id="thanks" data-aos="fade-right" data-aos-delay="450" data-aos-duration="2000">
                    <!-- icon -->
@@ -35,7 +35,7 @@
                    <!-- title -->
                     <h2 class="category-item-title">{{ categoryName[1] }}</h2>
                    <!-- link -->
-                   <a class="category-item-link" :href="categoryLink[1]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
+                   <router-link to="/Invite" class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
                </section>
                <section class="category-item" id="bugo" data-aos="fade-right" data-aos-delay="850" data-aos-duration="2000">
                    <!-- icon -->
@@ -43,7 +43,7 @@
                    <!-- title -->
                     <h2 class="category-item-title">{{ categoryName[2] }}</h2>
                    <!-- link -->
-                   <a class="category-item-link" :href="categoryLink[2]"><i class="arrow fas fa-angle-right"></i> 바로가기</a>
+                   <router-link to="/Invite"  class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
                </section>
            </div>
            <div class="qr-wrapper">
@@ -284,6 +284,8 @@ export default {
                             border-radius: 50%;
                             // transition
                             transition: all 250ms ease-in-out;
+                            // z-index
+                            z-index: -1;
                         }
                     }
                 }
