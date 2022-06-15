@@ -3,7 +3,7 @@
     <!-- top -->
     <section class="top-nav">
       <!-- logo -->
-      <a class="logo-a" href="#">
+      <router-link class="logo-a" to="/" >
         <svg version="1.1" class="logo" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
 
 <g>
@@ -100,7 +100,7 @@
 	</g>
 </g>
         </svg>
-      </a>
+      </router-link>
       <!-- toggle btn -->
       <div class="toggleBtn-nav" @click="navToggleOnOff" :class="{isToggleBtnActive: isToggleActive}">
         <span class="toggle-btn top"></span>
