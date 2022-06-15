@@ -26,6 +26,11 @@
                 <a href="#" class="top-item">모바일 부고장</a>
             </li>
         </ul>
+        <div class="subNav-toggle-wrapper">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+        </div>
     </nav>
 </template>
 <script>
@@ -145,6 +150,10 @@ export default {
                 }
             }
         }
+    }
+    .subNav-toggle-wrapper{
+        // display
+        display: none;
     }
 }
 
