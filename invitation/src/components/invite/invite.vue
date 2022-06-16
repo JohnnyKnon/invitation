@@ -1,15 +1,18 @@
 <template>
     <main id="main">
       <subNav></subNav>
+      <inviteList/>
     </main>
 </template>
 <script>
 import subNav from '../subDefault/subNav.vue'
+import inviteList from './inviteItemList.vue'
 
 export default {
   name: 'InviteSub',
   components: {
-    subNav
+    subNav,
+    inviteList,
   },
 }
 </script>
