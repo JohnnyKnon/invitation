@@ -223,22 +223,38 @@ export default {
             width: 95%;
             // padding
             padding-bottom: 40px;
+            // flex
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             .list-main{
-                // flex
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
+                // size
+                width: 100%;
+                // padding
+                padding: 0;
+                // gird
+                display: grid;
+                align-content: center;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
                 .list-item {
                     // size
                     width: 340px;
+                    // padding
+                    padding-bottom: 50px;
                     // flex
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    // grid
+                    align-self: center;
+                    justify-self: center;
+                    
                     .mb-iv{
                         // size
                         width: 100%;
                         height: 340px;
+                        // margin
+                        margin: 0;
                         // background
                         background-color: var(--dark-sub-color);
                     }
@@ -324,7 +340,7 @@ export default {
                     // padding
                     padding: 0;
                     // flex
-                     display: flex;
+                    display: flex;
                     align-content: center;
                     gap: 20px;
                 }
