@@ -8,7 +8,6 @@
 import subNav from '../subDefault/subNav.vue'
 import ThanksList from './thanksItemList.vue'
 
-
 export default {
   name: 'ThanksSub',
   components: {
@@ -19,6 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
+
   #main{
     // flex
     display: flex;

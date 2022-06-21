@@ -6,6 +6,7 @@ const routes = [
     name: "main",
     component: () => import('./components/main/main.vue')
   },
+  // Sub Default
   {
     path: "/Invite",
     name: "Invite",
@@ -20,7 +21,18 @@ const routes = [
     path: "/Thanks",
     name: "Thanks",
     component: () => import('./components/thanks/thanks.vue')
-  }
+  },
+  // Request Form
+  {
+    path: "/ThanksPhoto",
+    name: "ThanksPhoto",
+    component: () => import('./components/request/thanks/thanksRequestPhoto.vue')
+  },
+  {
+    path: "/ThanksWord",
+    name: "ThanksWord",
+    component: () => import('./components/request/thanks/thanksRequestWord.vue')
+  },
 ];
 
 const router = createRouter({

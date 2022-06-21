@@ -11,9 +11,19 @@
                 <div class="list-item post">
                     <figure class="mb-iv"></figure>
                     <section class="list-item-info">
-                        <h1 class="item-name"><a href="#">Default Name</a></h1>
+                        <h1 class="item-name"><a href="/ThanksPhoto">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(사진)</span>
+                            <h2 class="price">10,000원</h2>
+                        </div>
+                    </section>
+                </div>
+                <div class="list-item post">
+                    <figure class="mb-iv"></figure>
+                    <section class="list-item-info">
+                        <h1 class="item-name"><a href="/ThanksWord">Default Name</a></h1>
+                        <div class="category-price">
+                            <span class="category">감사장(글)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -23,7 +33,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(사진)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -33,7 +43,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(글)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -43,7 +53,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(사진)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -53,7 +63,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(글)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -63,7 +73,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(사진)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -73,7 +83,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(글)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -83,7 +93,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(사진)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -93,21 +103,11 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category">감사장</span>
+                            <span class="category">감사장(글)</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
                 </div>
-                <div class="list-item post">
-                    <figure class="mb-iv"></figure>
-                    <section class="list-item-info">
-                        <h1 class="item-name"><a href="#">Default Name</a></h1>
-                        <div class="category-price">
-                            <span class="category">감사장</span>
-                            <h2 class="price">10,000원</h2>
-                        </div>
-                    </section>
-                </div>         
             </section>
             <!-- page -->
             <footer class="page">
@@ -234,7 +234,7 @@ export default {
                                 // text
                                 text-align: center;
                                 // size
-                                width: 55px;
+                                width: 88px;
                                 // padding
                                 padding: 5px 0;
                                 // background

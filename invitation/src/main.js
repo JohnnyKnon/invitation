@@ -9,6 +9,7 @@ Vue.use(router);
 Vue.mount('#app');
 
 
+
 import mainHome from './components/main/mainHome.vue'
 Vue.component(mainHome.name, mainHome)
 
