@@ -27,7 +27,7 @@
                    <!-- title -->
                     <h2 class="category-item-title">{{ categoryName[0] }}</h2>
                    <!-- link -->
-                   <router-link to="/Invite" class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
+                   <router-link :to="categoryLink[0]"  class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
                </section>
                <section class="category-item" id="thanks" data-aos="fade-right" data-aos-delay="450" data-aos-duration="2000">
                    <!-- icon -->
@@ -35,7 +35,7 @@
                    <!-- title -->
                     <h2 class="category-item-title">{{ categoryName[1] }}</h2>
                    <!-- link -->
-                   <router-link to="/Invite" class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
+                   <router-link :to="categoryLink[1]"  class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
                </section>
                <section class="category-item" id="bugo" data-aos="fade-right" data-aos-delay="850" data-aos-duration="2000">
                    <!-- icon -->
@@ -43,7 +43,7 @@
                    <!-- title -->
                     <h2 class="category-item-title">{{ categoryName[2] }}</h2>
                    <!-- link -->
-                   <router-link to="/Invite"  class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
+                   <router-link :to="categoryLink[2]"  class="category-item-link"><i class="arrow fas fa-angle-right"></i>바로가기</router-link>
                </section>
            </div>
            <div class="qr-wrapper">
@@ -66,7 +66,7 @@ export default {
   data(){
     return{
         categoryName:['모바일 초대장', '모바일 감사장', '모바일 부고장'],
-        categoryLink:['링크1', '링크2', '링크3']
+        categoryLink:['/Invite', '/Thanks', '/Bugo']
     }
   },
   methods:{

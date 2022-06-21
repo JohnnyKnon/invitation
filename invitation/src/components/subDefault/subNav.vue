@@ -3,16 +3,16 @@
         <ul class="subNav-items-wrapper">
             <li class="subNav-items">
                 <!-- top category -->
-                <a href="#" class="top-item">모바일 초대장</a>
+                <a href="/Invite" class="top-item">모바일 초대장</a>
         
             </li>
             <li class="subNav-items">
                 <!-- top category -->
-                <a href="#" class="top-item">모바일 감사장</a>
+                <a href="/Thanks" class="top-item">모바일 감사장</a>
             </li>
             <li class="subNav-items">
                 <!-- top category -->
-                <a href="#" class="top-item">모바일 부고장</a>
+                <a href="/Bugo" class="top-item">모바일 부고장</a>
             </li>
         </ul>
     </nav>

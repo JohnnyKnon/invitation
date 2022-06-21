@@ -143,7 +143,7 @@ export default {
   data(){
     return{
       // Nav For
-      navItemsRightLink : ['/Invite', 'thanks', 'gift', 'design'],
+      navItemsRightLink : ['/Invite', '/Thanks', 'gift', 'design'],
       navItemsRight : ['모바일 초대장', '모바일 감사장', '답례품 제작', '디자인 신청'],
       navItemsLeftLink : ['request', 'qna', 'greeting', 'qr-code'],
       navItemsLeft : ['신청게시판', '문의하기', '인사말 찾기', 'QR코드 생성'],
