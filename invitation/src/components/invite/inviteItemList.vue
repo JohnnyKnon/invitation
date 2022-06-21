@@ -33,7 +33,7 @@
                     <section class="list-item-info">
                         <h1 class="item-name"><a href="#">Default Name</a></h1>
                         <div class="category-price">
-                            <span class="category baby">돌잔치</span>
+                            <span class="category birth">생일</span>
                             <h2 class="price">10,000원</h2>
                         </div>
                     </section>
@@ -298,10 +298,6 @@ export default {
                             .birth{
                                  // background
                                 background-color: var(--highlight-color);
-                            }
-                            .baby{
-                                 // background
-                                background-color: var(--sub-color);
                             }
                             .event{
                                  // background
