@@ -2,7 +2,7 @@
     <section id="invite-list">
         <!-- Header -->
         <header class="invite-list-header">
-            <h1>모바일 부고장<br/><span class="small">(Mobile obituary notice)</span></h1>
+            <h1>모바일 감사장<br/><span class="small">(Mobile Thanks Cards)</span></h1>
         </header>
         <!-- list -->
         <form id="list">
