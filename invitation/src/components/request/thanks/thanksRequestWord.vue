@@ -28,8 +28,7 @@ export default {
     flex-direction: column;
     align-content: center;
     gap: 20px;
-    // padding
-    padding: 50px 0;
+
     // header
     .request-header{
       // text

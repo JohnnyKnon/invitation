@@ -22,16 +22,15 @@
     </section>
 </template>
 <script>
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// language KR
 import '@ckeditor/ckeditor5-build-classic/build/translations/ko';
-
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 
 export default {
   name: 'ThanksDefault',
   components: {
-    
   },
   data(){
     return{
@@ -40,8 +39,9 @@ export default {
         editorConfig: {
             language: 'ko',
             toolbar: [
-                'heading','fontSize','bold','italic', 'fontFamily', 'fontColor', 'bulletedList', 'numberedList', 'fontSize', 'undo', 'redo'
-            ]   
+                    'heading','fontSize','bold','italic', 'fontFamily', 'fontColor', 'bulletedList', 'numberedList', 'fontSize', 'undo', 'redo'
+            ]
+
         }
     }
   }
