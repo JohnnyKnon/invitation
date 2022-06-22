@@ -18,15 +18,32 @@
         </ul>
     </section>
     <section id="comment">
+        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
     </section>
 </template>
 <script>
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import '@ckeditor/ckeditor5-build-classic/build/translations/ko';
+
+
 
 export default {
   name: 'ThanksDefault',
   components: {
     
   },
+  data(){
+    return{
+        editor: ClassicEditor,
+        editorData: '<p></p>',
+        editorConfig: {
+            language: 'ko',
+            toolbar: [
+                'heading','fontSize','bold','italic', 'fontFamily', 'fontColor', 'bulletedList', 'numberedList', 'fontSize', 'undo', 'redo'
+            ]   
+        }
+    }
+  }
 }
 </script>
 

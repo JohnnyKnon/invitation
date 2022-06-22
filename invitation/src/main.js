@@ -1,13 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from "./router";
+import router from "./router"
 import 'atropos/css'
+import CKEditor from '@ckeditor/ckeditor5-vue';
+
 
 const Vue = createApp(App);
 
 Vue.use(router);
-Vue.mount('#app');
-
+Vue.use( CKEditor ).mount('#app');
 
 
 import mainHome from './components/main/mainHome.vue'
@@ -22,3 +23,4 @@ Vue.component(mainContact.name, mainContact)
 
 import footerDefault from './components/footer.vue'
 Vue.component(footerDefault.name, footerDefault)
+
