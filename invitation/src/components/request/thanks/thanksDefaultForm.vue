@@ -27,6 +27,7 @@ import '@ckeditor/ckeditor5-build-classic/build/translations/ko';
 
 
 
+
 export default {
   name: 'ThanksDefault',
   components: {
