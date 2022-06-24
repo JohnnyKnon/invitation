@@ -35,12 +35,12 @@ export default {
   data(){
     return{
      editorTool: [
-        [{ size: [ 'small', false, 'large', 'huge' ]}],
-        [{ 'header': 1 }, { 'header': 2}],
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
         [{ 'font': [] }],
+        [{ 'color': [] }],
         ['bold', 'italic', 'underline'],
-        [{ 'align': [] }], 
-        [{ 'color': [] }]
+        [{ 'align': [] }]
+
      ]
     }
   }
