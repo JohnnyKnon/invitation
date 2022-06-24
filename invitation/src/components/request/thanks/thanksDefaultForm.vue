@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-#preview{
+@mixin BoxStyle {
     // font
     font-family: var(--font-kr);
     // max-size
@@ -65,6 +65,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#preview{
+    @include BoxStyle();
     .preview-header{
       // size
       width: 85%;
