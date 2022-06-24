@@ -18,31 +18,30 @@
         </ul>
     </section>
     <section id="comment">
-        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+        <QuillEditor :toolbar="editorTool" theme="snow" />
     </section>
 </template>
 <script>
-// language KR
-import '@ckeditor/ckeditor5-build-classic/build/translations/ko';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
+import { QuillEditor } from '@vueup/vue-quill'
 
 export default {
   name: 'ThanksDefault',
   components: {
+     QuillEditor,
+
   },
   data(){
     return{
-        editor: ClassicEditor,
-        editorData: '<p></p>',
-        editorConfig: {
-            language: 'ko',
-            toolbar: [
-                    'heading','fontSize','bold','italic', 'fontFamily', 'fontColor', 'bulletedList', 'numberedList', 'fontSize', 'undo', 'redo'
-            ]
-
-        }
+     editorTool: [
+        [{ size: [ 'small', false, 'large', 'huge' ]}],
+        [{ 'header': 1 }, { 'header': 2}],
+        [{ 'font': [] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'align': [] }], 
+        [{ 'color': [] }]
+     ]
     }
   }
 }

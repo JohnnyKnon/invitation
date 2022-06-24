@@ -2,14 +2,16 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from "./router"
 import 'atropos/css'
-import CKEditor from '@ckeditor/ckeditor5-vue';
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 
 const Vue = createApp(App);
 
 Vue.use(router);
-Vue.use( CKEditor ).mount('#app');
+Vue.mount('#app');
 
+Vue.component('QuillEditor', QuillEditor)
 
 import mainHome from './components/main/mainHome.vue'
 Vue.component(mainHome.name, mainHome)
