@@ -1,7 +1,7 @@
 <template>
     <section id="preview">
         <!-- header -->
-        <header class="preview-header">
+        <header class="thanks-form-header">
             <h1>링크 미리보기 정보</h1>
             <span>※ 감사장 공유시 링크 미리보기에 표시되는 내용입니다.</span>
         </header>
@@ -18,7 +18,17 @@
         </ul>
     </section>
     <section id="comment">
-        <QuillEditor :toolbar="editorTool" theme="snow" />
+         <!-- header -->
+        <header class="thanks-form-header">
+            <h1>문구 입력</h1>
+            <span>※ 감사장 인사 문구를 입력해 주세요.</span>
+        </header>
+        <form class="comment-contents">
+            <p>인사 문구<span class="required">*</span></p>
+            <div class="textbox-wrapper">
+                <QuillEditor :toolbar="editorTool" theme="snow" />
+            </div>
+        </form>
     </section>
 </template>
 <script>
@@ -38,6 +48,7 @@ export default {
         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
         [{ 'font': [] }],
         [{ 'color': [] }],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
         ['bold', 'italic', 'underline'],
         [{ 'align': [] }]
 
@@ -67,9 +78,7 @@ export default {
     align-items: center;
 }
 
-#preview{
-    @include BoxStyle();
-    .preview-header{
+ .thanks-form-header{
       // size
       width: 85%;
       // margin
@@ -91,6 +100,9 @@ export default {
         font-size: 0.75rem;
       }
     }
+
+#preview{
+    @include BoxStyle();
     .preview-input-wrapper{
             // size
             width: 85%;
@@ -120,7 +132,24 @@ export default {
                     border-radius: 15px;
                 }
             }
-
         }
 }
+#comment{
+    @include BoxStyle();
+    .comment-contents{
+        // size
+        width: 85%;
+        // padding
+        padding-bottom: 40px;
+        // flex
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .textbox-wrapper{
+            // size
+            width: 90%;
+        }
+    }
+}
+
 </style>

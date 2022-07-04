@@ -106,11 +106,6 @@ export default {
                 // label
                 label{
                     color: var(--dark-sub-color);
-                    .required{
-                        // font
-                        font-size: 1.2rem;
-                        color: var(--highlight-color);
-                    }
                 }
                 input{
                     // size

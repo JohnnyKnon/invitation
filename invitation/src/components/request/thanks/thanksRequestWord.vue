@@ -1,5 +1,5 @@
 <template>
-    <main id="main">
+    <main id="Thanksmain">
         <header class="request-header"><h1>모바일 감사장<br/><span class="small">(Mobile Thanks Cards)</span></h1></header>
         <!-- UserInfo -->
         <userInfoForm/>
@@ -22,13 +22,19 @@ export default {
 </script>
 
 <style lang="scss">
-  #main{
+  #Thanksmain{
+     // padding
+    padding-bottom: 50px;
     // flex
     display: flex;
     flex-direction: column;
     align-content: center;
     gap: 20px;
-
+  .required{
+    // font
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+  }
     // header
     .request-header{
       // text
