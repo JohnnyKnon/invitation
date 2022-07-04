@@ -78,29 +78,7 @@ export default {
     align-items: center;
 }
 
- .thanks-form-header{
-      // size
-      width: 85%;
-      // margin
-      margin-bottom: 10px;
-      // flex
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      // border
-      border-bottom: 1px solid var(--dark-grey-color);
-      h1{
-        // font
-        font-size: 1.5rem;
-        color: var(--dark-main-color);
-      }
-      span{
-        // font
-        font-size: 0.75rem;
-      }
-    }
-
+ 
 #preview{
     @include BoxStyle();
     .preview-input-wrapper{
@@ -140,7 +118,7 @@ export default {
         // size
         width: 85%;
         // padding
-        padding-bottom: 40px;
+        padding-bottom: 70px;
         // flex
         display: flex;
         flex-wrap: wrap;

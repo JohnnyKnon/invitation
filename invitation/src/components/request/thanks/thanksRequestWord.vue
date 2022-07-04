@@ -22,6 +22,30 @@ export default {
 </script>
 
 <style lang="scss">
+
+.thanks-form-header{
+      // size
+      width: 85%;
+      // margin
+      margin-bottom: 10px;
+      // flex
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      // border
+      border-bottom: 1px solid var(--dark-grey-color);
+      h1{
+        // font
+        font-size: 1.5rem;
+        color: var(--dark-main-color);
+      }
+      span{
+        // font
+        font-size: 0.75rem;
+      }
+    }
+
   #Thanksmain{
      // padding
     padding-bottom: 50px;
